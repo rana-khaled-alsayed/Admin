@@ -4,7 +4,7 @@
         //Ensure integer value [More secure]
         $id = intval($_POST['id']);
         //Execute query
-        $stmt = "DELETE FROM expert WHERE ID = '$id'";
+        $stmt = "DELETE FROM expert WHERE Expert_ID = '$id'";
         if(mysqli_query($conn, $stmt)){
             echo "<script>
             alert('Record Deleted Successfully!'); window.location.href='expert.php';

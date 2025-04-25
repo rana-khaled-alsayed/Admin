@@ -7,7 +7,7 @@
         //Expert accepted
         if(isset($_POST['accept_button_expert'])){
             //Execute query
-            $stmt = "UPDATE expert SET Status = 'ACCEPTED' WHERE expert.ID = $id";
+            $stmt = "UPDATE expert SET Status = 'ACCEPTED' WHERE expert.Expert_ID = $id";
             if(mysqli_query($conn, $stmt)){
                 echo "<script>
                     alert('Expert Accepted'); window.location.href='expert.php';
@@ -22,7 +22,7 @@
         //Expert rejected
         else if(isset($_POST['reject_button_expert'])){
             //Execute query
-            $stmt = "UPDATE expert SET Status = 'REJECTED' WHERE expert.ID = $id";
+            $stmt = "UPDATE expert SET Status = 'REJECTED' WHERE expert.Expert_ID = $id";
             if(mysqli_query($conn, $stmt)){
                 echo "<script>
                     alert('Expert Rejected'); window.location.href='expert.php';

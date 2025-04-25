@@ -13,7 +13,7 @@
 <body>
     <!--Fetch Data From Database -->
     <?php
-        $stmt = "SELECT ID, Name, National_ID, Phone, Email, Address FROM user ";
+        $stmt = "SELECT User_ID, Name, National_ID, Phone, Email, Address FROM user ";
         $result = mysqli_query($conn, $stmt);
         if(mysqli_num_rows($result) > 0){
             echo "<table border = '1'>
@@ -29,7 +29,7 @@
             ";
             while($assoc = mysqli_fetch_assoc($result)){
                 echo "<tr>
-                    <td>{$assoc['ID']}</td>
+                    <td>{$assoc['User_ID']}</td>
                     <td>{$assoc['Name']}</td>
                     <td>{$assoc['National_ID']}</td>
                     <td>{$assoc['Phone']}</td>
@@ -37,7 +37,7 @@
                     <td>{$assoc['Address']}</td>
                     <td>
                         <form action='delete_user.php' method='post' onsubmit='return confirm(\"Are you sure you want to delete this record?\")'>
-                            <input type='hidden' name='id' value='{$assoc['ID']}'>
+                            <input type='hidden' name='id' value='{$assoc['User_ID']}'>
                             <button type='submit' class='btn btn-danger'>Delete</button>
                         </form>
                     </td>

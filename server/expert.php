@@ -13,7 +13,7 @@
 <body>
     <!--Fetch the data from Database -->
     <?php 
-        $stmt = "SELECT ID, Name, National_ID, Phone, Address, Email, File_path, Status FROM expert";
+        $stmt = "SELECT Expert_ID, Name, National_ID, Phone, Address, Email, File_path, Status FROM expert";
         $result = mysqli_query($conn, $stmt);
         if(mysqli_num_rows($result) > 0){
             echo "<table border = '1'>
@@ -41,7 +41,7 @@
                 }
                 
                 echo"<tr>
-                <td>{$assoc['ID']}</td>
+                <td>{$assoc['Expert_ID']}</td>
                 <td>{$assoc['Name']}</td>
                 <td>{$assoc['National_ID']}</td>
                 <td>{$assoc['Phone']}</td>
@@ -50,14 +50,14 @@
                 <td>$file_link</td>
                 <td>
                     <form action='delete_expert.php' method='post' onsubmit='return confirm(\"Are you sure you want to delete this record?\")'>
-                        <input type='hidden' name='id' value='{$assoc['ID']}'>
+                        <input type='hidden' name='id' value='{$assoc['Expert_ID']}'>
                         <button type='submit' class='btn btn-danger'>Delete</button>
                     </form>
                 </td>
                 <td>{$assoc['Status']}</td>
                 <td>
                     <form action='expert_status.php' method='post' onsubmit='return confirm(\"Confirm Status Change?\")'>
-                        <input type='hidden' name='id' value='{$assoc['ID']}'>
+                        <input type='hidden' name='id' value='{$assoc['Expert_ID']}'>
                         <button type='submit' name='accept_button_expert'>Accept</button>
                         <button type='submit' name='reject_button_expert'>Reject</button>
                     </form>
